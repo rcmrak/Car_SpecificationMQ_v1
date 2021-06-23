@@ -1,0 +1,13 @@
+
+
+CREATE COMPUTE MODULE Car_SpecificationMQ_V1_RequestPre
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputLocalEnvironment.Destination.REST.Request.Parameters.kod = InputRoot.JSON.Data.vin;
+		
+		RETURN TRUE;
+	END;
+
+	
+END MODULE;

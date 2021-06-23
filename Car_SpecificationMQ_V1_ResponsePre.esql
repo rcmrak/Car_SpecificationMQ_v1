@@ -1,0 +1,17 @@
+
+
+
+
+CREATE COMPUTE MODULE Car_SpecificationMQ_V1_ResponsePre
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+
+		SET OutputRoot.JSON.Data.car.vin = InputRoot.XMLNSC.Auto.kod;
+		SET OutputRoot.JSON.Data.car.engine = InputRoot.XMLNSC.Auto.motor;
+		SET OutputRoot.JSON.Data.car.fuel = InputRoot.XMLNSC.Auto.palivo;
+		SET OutputRoot.JSON.Data.car.transmission = InputRoot.XMLNSC.Auto.prevodovka;
+
+		RETURN TRUE;
+	END;
+
+END MODULE;
